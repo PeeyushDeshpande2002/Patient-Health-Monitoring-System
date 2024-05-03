@@ -1,5 +1,5 @@
-import { getDatabase, ref, set } from 'firebase/database';
-import { app } from './firebase';
+// import { getDatabase, ref, set } from 'firebase/database';
+// import { app } from './firebase';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import { Dashboard } from './components/Pages/Dashboard';
 import Home from './components/Pages/Home';
@@ -7,7 +7,7 @@ import Login from './components/Pages/Login';
 import SignUp from './components/Pages/SignUp';
 import { Navbar } from './components/Navbar';
 
-const db = getDatabase(app);
+// const db = getDatabase(app);
 
 function App() {
 
