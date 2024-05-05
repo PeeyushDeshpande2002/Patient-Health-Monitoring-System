@@ -1,10 +1,16 @@
-import Spo2 from "../Dashboard/Spo2"
+import { Box, Card } from "@mui/material"
+import MultiActionAreaCard from "../Dashboard/Card"
+
 
 export const Dashboard = () => {
   return (
     <div>
-        <h1>This is Dashboard</h1>
-      <Spo2/>
+      <Box display={"flex"} justifyContent={"space-between"} mt={3}>
+      <MultiActionAreaCard/>
+      <MultiActionAreaCard/>
+      <MultiActionAreaCard/>
+      <MultiActionAreaCard/>
+      </Box>
     </div>
   )
 }
