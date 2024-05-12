@@ -24,6 +24,7 @@ const firebaseAuth = getAuth(firebaseApp);
 const database = getDatabase(firebaseApp);
 
 export const FirebaseProvider = (props) => {
+  const [dataUsers, setDataUsers] = useState();
   const [data, setData] = useState();
   const signUpUserWithEmailAndPassword = (email, password) => {
     createUserWithEmailAndPassword(firebaseAuth, email, password);
@@ -36,9 +37,13 @@ export const FirebaseProvider = (props) => {
     setData(snapshot.val());
     //console.log(snapshot.val());
   }))
+  onValue(ref(database, "users"), (snapshot => {
+    setDataUsers(snapshot.val());
+    //console.log(snapshot.val());
+  }))
  }, []);
   return (
-    <FirebaseContext.Provider value={{ signUpUserWithEmailAndPassword, loginUser, data }}>
+    <FirebaseContext.Provider value={{ signUpUserWithEmailAndPassword, loginUser, data, dataUsers }}>
       {props.children}
     </FirebaseContext.Provider>
   );

@@ -7,6 +7,7 @@ import Login from './components/Pages/Login';
 import SignUp from './components/Pages/SignUp';
 import { Navbar } from './components/Navbar';
 import Parameter from "./components/Dashboard/Parameter";
+import About from "./components/Pages/About";
 
 // 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/login' element = {<Login/>}/>
           <Route path = '/signup' element = {<SignUp/>}/>
           <Route path= '/patient' element = {<Parameter/>}/>
+          <Route path="/about" element = {<About/>}/>
         </Routes>
       </BrowserRouter>
       
