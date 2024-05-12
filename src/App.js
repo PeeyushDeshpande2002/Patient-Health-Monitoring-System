@@ -8,7 +8,7 @@ import SignUp from './components/Pages/SignUp';
 import { Navbar } from './components/Navbar';
 import Parameter from "./components/Dashboard/Parameter";
 
-// const db = getDatabase(app);
+// 
 
 function App() {
 

@@ -11,12 +11,13 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useFirebase } from "../../firebase";
 import { useState } from "react";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   const firebase = useFirebase();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -26,11 +27,17 @@ export default function Login() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-   const result = await firebase.loginUser(
-      email,
-      password
-    );
-    console.log(firebase);
+    try {
+      const result = await firebase.loginUser(
+        email,
+        password
+      );
+      console.log(result);
+     navigate('/dashboard')
+    } catch (error) {
+      console.log(error);
+    }
+  
   };
 
   return (

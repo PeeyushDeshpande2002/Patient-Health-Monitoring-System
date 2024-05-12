@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+
+import { child, get, getDatabase, onValue, ref } from "firebase/database";
 
 const FirebaseContext = createContext(null);
 
@@ -19,17 +21,28 @@ export const useFirebase = () => useContext(FirebaseContext);
 const firebaseApp = initializeApp(firebaseConfig);
 
 const firebaseAuth = getAuth(firebaseApp);
+const database = getDatabase(firebaseApp);
 
 export const FirebaseProvider = (props) => {
+  const [data, setData] = useState();
   const signUpUserWithEmailAndPassword = (email, password) => {
     createUserWithEmailAndPassword(firebaseAuth, email, password);
   };
   const loginUser = (email, password) => {
     signInWithEmailAndPassword(firebaseAuth, email, password);
   }
+ useEffect(()=>{
+  onValue(ref(database, "users/Anshul"), (snapshot => {
+    setData(snapshot.val());
+    //console.log(snapshot.val());
+  }))
+ }, []);
   return (
-    <FirebaseContext.Provider value={{ signUpUserWithEmailAndPassword, loginUser }}>
+    <FirebaseContext.Provider value={{ signUpUserWithEmailAndPassword, loginUser, data }}>
       {props.children}
     </FirebaseContext.Provider>
   );
 };
+
+export default FirebaseProvider;
+export {FirebaseContext};
