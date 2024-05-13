@@ -9,17 +9,8 @@ import { Navbar } from './components/Navbar';
 import Parameter from "./components/Dashboard/Parameter";
 import About from "./components/Pages/About";
 
-// 
 
 function App() {
-
-  // const putData = () => {
-  //   set(ref(db, 'users/peeyush'), {
-  //     id : 1,
-  //     name : "Peeyush",
-  //     age : 21
-  //   })
-  // }
   return (
     <div className="App">
       <BrowserRouter>
@@ -29,7 +20,7 @@ function App() {
           <Route path = '/dashboard' element = {<Dashboard/>}/>
           <Route path='/login' element = {<Login/>}/>
           <Route path = '/signup' element = {<SignUp/>}/>
-          <Route path= '/patient' element = {<Parameter/>}/>
+          <Route path= '/dashboard/:patientId' element = {<Parameter/>}/>
           <Route path="/about" element = {<About/>}/>
         </Routes>
       </BrowserRouter>

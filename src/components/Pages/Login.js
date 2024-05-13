@@ -32,7 +32,6 @@ export default function Login() {
         email,
         password
       );
-      console.log(result);
      navigate('/dashboard')
     } catch (error) {
       console.log(error);
@@ -94,6 +93,9 @@ export default function Login() {
               Login
             </Button>
           </FormControl>
+        
+          <br/>
+          <a href="/signup">Register Now!</a>
         </div>
       </Box>
     </>

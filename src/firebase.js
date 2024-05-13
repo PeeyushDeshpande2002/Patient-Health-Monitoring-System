@@ -26,6 +26,7 @@ const database = getDatabase(firebaseApp);
 export const FirebaseProvider = (props) => {
   const [dataUsers, setDataUsers] = useState();
   const [data, setData] = useState();
+  const [graphData, setGraphData] = useState();
   const signUpUserWithEmailAndPassword = (email, password) => {
     createUserWithEmailAndPassword(firebaseAuth, email, password);
   };
@@ -33,17 +34,19 @@ export const FirebaseProvider = (props) => {
     signInWithEmailAndPassword(firebaseAuth, email, password);
   }
  useEffect(()=>{
-  onValue(ref(database, "users/Anshul"), (snapshot => {
-    setData(snapshot.val());
-    //console.log(snapshot.val());
-  }))
+  // onValue(ref(database, "users/Anshul"), (snapshot => {
+  //   setData(snapshot.val());
+  //   //console.log(snapshot.val());
+  // }))
   onValue(ref(database, "users"), (snapshot => {
-    setDataUsers(snapshot.val());
+    const data = snapshot.val()
+    setDataUsers(data);
+    setGraphData(data)
     //console.log(snapshot.val());
   }))
  }, []);
   return (
-    <FirebaseContext.Provider value={{ signUpUserWithEmailAndPassword, loginUser, data, dataUsers }}>
+    <FirebaseContext.Provider value={{ signUpUserWithEmailAndPassword, loginUser, data, dataUsers, graphData }}>
       {props.children}
     </FirebaseContext.Provider>
   );
