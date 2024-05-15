@@ -1,8 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Gauge, GaugeContainer } from "@mui/x-charts/Gauge";
-import { Box, Grid } from "@mui/material";
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import { LineChart } from '@mui/x-charts'
 import { FirebaseContext } from "../../firebase";
+
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+
+}));
+
 
 const Temp = ({patientId}) => {
   const [loading, setLoading] = useState(false);
@@ -19,14 +32,16 @@ const Temp = ({patientId}) => {
   return (
     <>
     
-      <Box display={"flex"} justifyContent={"space-around"} mt={3}>
+    <Box sx={{ flexGrow: 1 , margin : '20px'}} >
+        <Item sx = {{ padding : '20px'}}>
       <h1>Temperature Reading</h1>
       {!dataUsers ? (
         <h1>Loading...</h1>
       ) : (
         <>
-            <Box height={200} width={200} marginTop={5}>
-              
+            <Grid container spacing={2}>
+              <Grid item xs={5}>
+               
               <Gauge
                 value={dataUsers[patientId].TEMP}
                 startAngle={0}
@@ -34,8 +49,10 @@ const Temp = ({patientId}) => {
                 innerRadius="80%"
                 outerRadius="100%"
               />
-            </Box>
-            <Box>
+             
+             </Grid>
+              <Grid item xs={7}>
+                <Item>
       <LineChart
           xAxis={[{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }]}
           series={[
@@ -46,9 +63,12 @@ const Temp = ({patientId}) => {
           width={500}
           height={300}
         />
-        </Box>
+         </Item>
+              </Grid>
+            </Grid>
         </>
       )}
+      </Item>
     </Box>
     </>
   );
