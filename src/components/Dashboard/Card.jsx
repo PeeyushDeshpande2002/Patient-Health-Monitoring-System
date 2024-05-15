@@ -6,8 +6,9 @@ import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 export default function MultiActionAreaCard({ patient }) {
   return (
+
     <Link to={`/dashboard/${patient.id}`}>
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ Width: 345 }}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -20,5 +21,6 @@ export default function MultiActionAreaCard({ patient }) {
       </CardActionArea>
     </Card>
     </Link>
+
   );
 }
