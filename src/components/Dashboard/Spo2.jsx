@@ -8,7 +8,7 @@ const Spo2 = ({ patientId }) => {
   const [loading, setLoading] = useState(false);
   const[SPO2, setSPO2] = React.useState([]);
   const {dataUsers, graphData} = React.useContext(FirebaseContext);
-  console.log(graphData[patientId].SPO2);
+  //console.log(graphData[patientId].SPO2);
   useEffect(() => {
     setSPO2((prevData) => {
         // Take the past 10 values and append the new value
