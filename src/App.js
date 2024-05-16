@@ -8,6 +8,7 @@ import SignUp from './components/Pages/SignUp';
 import { Navbar } from './components/Navbar';
 import Parameter from "./components/Dashboard/Parameter";
 import About from "./components/Pages/About";
+import Report from "./components/Dashboard/Report";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/login' element = {<Login/>}/>
           <Route path = '/signup' element = {<SignUp/>}/>
           <Route path= '/dashboard/:patientId' element = {<Parameter/>}/>
+          <Route path= '/dashboard/report/:patientId' element = {<Report/>}/>
           <Route path="/about" element = {<About/>}/>
         </Routes>
       </BrowserRouter>

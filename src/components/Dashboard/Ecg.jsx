@@ -22,7 +22,7 @@ const Ecg = ({patientId}) => {
   useEffect(() => {
     setEcg((prevData) => {
       const updatedData = [...prevData, graphData[patientId].ECG];
-      return updatedData.slice(-10);
+      return updatedData.slice(-20);
     });
 }, [graphData[patientId].ECG]);
 

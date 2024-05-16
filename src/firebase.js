@@ -41,7 +41,7 @@ export const FirebaseProvider = (props) => {
   onValue(ref(database, "users"), (snapshot => {
     const data = snapshot.val()
     setDataUsers(data);
-    setGraphData(data)
+    setGraphData(data);
     //console.log(snapshot.val());
   }))
  }, []);

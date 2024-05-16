@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { FirebaseContext } from "../../firebase";
 
-export default function TableReport({ patientId }) {
+export default function TableReport({ data }) {
   function createData(Parameter, Range, Value) {
     return { Parameter, Range, Value };
   }
@@ -19,9 +19,9 @@ export default function TableReport({ patientId }) {
   // const HeartRate = dataUsers[patientId].HEARTRATE;
   // const Temp = dataUsers[patientId].TEMP;
   const rows = [
-    createData("SPO2", "94-100", dataUsers[patientId].SPO2),
-    createData("Heart Rate", "60-100", dataUsers[patientId].HEARTRATE),
-    createData("Temperature", "97F-99F", dataUsers[patientId].TEMP),
+    createData("SPO2", "94-100", data.SPO2),
+    createData("Heart Rate", "60-100", data.HEARTRATE),
+    createData("Temperature", "97F-99F", data.TEMP),
   ];
 
   return (
