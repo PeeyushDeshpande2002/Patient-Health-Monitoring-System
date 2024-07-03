@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Patient Monitoring System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the code and documentation for the Patient Monitoring System, a project designed to leverage the Internet of Things (IoT) to provide continuous real-time monitoring of vital health parameters. 
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Hardware Components](#hardware-components)
+- [Software Requirements](#software-requirements)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Introduction
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Healthcare is constantly evolving, and technological advancements are enabling significant improvements in patient care. The Patient Monitoring System aims to integrate IoT devices and data analytics to provide continuous, real-time monitoring of vital health metrics. This project empowers individuals and healthcare providers by facilitating access to accurate and timely health data.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Integration of Smart Sensors and IoT Devices**: Utilizes sensors like MAX30100 for pulse oximetry and DS18B20 for temperature monitoring.
+- **Central Hub (ESP32 Microcontroller)**: Acts as the central hub for efficient communication between sensors and the web server.
+- **Web Server Hosting**: Leverages technologies such as Node.js, Express.js, and Firebase for remote monitoring and data storage.
+- **Medical Report Download**: Allows users and healthcare providers to download comprehensive medical reports.
+- **Calibration of Health Parameter Readings**: Ensures accuracy and reliability of health data through calibration mechanisms.
 
-### `npm run build`
+## Architecture
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Architecture Diagram](path/to/architecture-diagram.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Hardware Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ESP32 Microcontroller
+- MAX30100 Pulse Oximeter Sensor
+- DS18B20 Temperature Sensor
+- Other relevant IoT devices and connectors
 
-### `npm run eject`
+## Software Requirements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Node.js
+- Express.js
+- Firebase
+- Additional libraries and dependencies listed in `package.json`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Setup and Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Clone the Repository**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   git clone https://github.com/yourusername/patient-monitoring-system.git
+   cd patient-monitoring-system
+   ```
 
-## Learn More
+2. **Install Dependencies**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   npm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Setup Firebase**
 
-### Code Splitting
+   - Create a Firebase project and obtain your configuration details.
+   - Replace the placeholder configuration in the project with your Firebase configuration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. **Upload Code to ESP32**
 
-### Analyzing the Bundle Size
+   - Use the Arduino IDE or PlatformIO to upload the ESP32 code from the `esp32` directory.
+   - Ensure the correct configuration of Wi-Fi credentials and Firebase details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+5. **Run the Server**
 
-### Making a Progressive Web App
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Usage
 
-### Advanced Configuration
+- Access the web interface through the provided URL.
+- Monitor real-time health data.
+- Download medical reports from the website.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
