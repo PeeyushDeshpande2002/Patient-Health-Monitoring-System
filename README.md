@@ -6,7 +6,6 @@ This repository contains the code and documentation for the Patient Monitoring S
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Architecture](#architecture)
 - [Hardware Components](#hardware-components)
 - [Software Requirements](#software-requirements)
 - [Setup and Installation](#setup-and-installation)
@@ -24,10 +23,6 @@ Healthcare is constantly evolving, and technological advancements are enabling s
 - **Web Server Hosting**: Leverages technologies such as Node.js, Express.js, and Firebase for remote monitoring and data storage.
 - **Medical Report Download**: Allows users and healthcare providers to download comprehensive medical reports.
 - **Calibration of Health Parameter Readings**: Ensures accuracy and reliability of health data through calibration mechanisms.
-
-## Architecture
-
-![Architecture Diagram](path/to/architecture-diagram.png)
 
 ## Hardware Components
 
